@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: aceeb9752de47e245a5c69e23ca57538
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pad: {fileID: 7942394077121930438, guid: e17d4f28f3ee0b44d88095ce552a2999, type: 3}
+  - ball: {fileID: 8676461359814431574, guid: 7ac5227a6a3279f4387fd706ada974b7, type: 3}
+  - gameOverText: {fileID: 5702355667422045586, guid: d43ec9a5a5456d3489940304634066fa,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
