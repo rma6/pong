@@ -34,18 +34,18 @@ public class Ball : MonoBehaviour
         if(transform.position.x < GameManager.bottomLeft.x + radius)
         {
             //esquerda perde
+            GameOver.rigthWins = true;
+            GameOver.gameover = true;
 
             //congela o jogo e desabilita o script
-            Time.timeScale = 0;
-            enabled = false;
         }
         else if(transform.position.x > GameManager.topRight.x - radius)
         {
             //direita perde
+            GameOver.rigthWins = false;
+            GameOver.gameover = true;
 
             //congela o jogo e desabilita o script
-            Time.timeScale = 0;
-            enabled = false;
         }
     }
 

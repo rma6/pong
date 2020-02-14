@@ -45,11 +45,17 @@ public class Pad : MonoBehaviour
         {
             position = new Vector2(GameManager.topRight.x - transform.localScale.x, 0);
             input = "PadRight";
+
+            //muda cor para vermelho
+            GetComponent<SpriteRenderer>().color = Color.red;
         }
         else
         {
             position = new Vector2(GameManager.bottomLeft.x + transform.localScale.x, 0);
             input = "PadLeft";
+
+            //muda cor para azul
+            GetComponent<SpriteRenderer>().color = Color.blue;
         }
         transform.position = position;
 

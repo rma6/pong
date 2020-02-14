@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Ball.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\Pad.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Rafael/Documents/Unity/Pong Evolved/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
