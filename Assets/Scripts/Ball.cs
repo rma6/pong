@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -59,6 +60,10 @@ public class Ball : MonoBehaviour
             if((isRight && direction.x > 0) || ((!isRight && direction.x < 0)))
             {
                 direction.x = -direction.x;
+
+                //atividade 5.3 a direção que a bola vai depende de onde ela bate no pad
+                direction.y = Math.Abs(transform.position.y - collision.GetComponent<Transform>().position.y);
+                direction = direction.normalized;
             }
         }
     }
