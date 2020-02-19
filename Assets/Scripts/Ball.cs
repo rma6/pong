@@ -26,13 +26,6 @@ public class Ball : MonoBehaviour
         //move a bola
         transform.Translate(direction * Time.deltaTime * speed);
 
-
-        //inverte a direção da bola caso colida com o topo ou fundo da cena
-        if (transform.position.y < GameManager.bottomLeft.y + radius || transform.position.y > GameManager.topRight.y - radius)
-        {
-            direction.y = -direction.y;
-        }
-
         //detecta game over
         if(transform.position.x < GameManager.bottomLeft.x + radius)
         {
@@ -54,8 +47,13 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(GameManager.start && !GameOver.gameover)
+        {
+            GetComponent<AudioSource>().Play();
+        }
+
         //caso colida com um pad inverte a direção do movimento
-        if(collision.tag == "Pad")
+        if (collision.tag == "Pad")
         {
             //para colidir com um pad a bola tem que ter saido do diamante
             hasLeafDiamond = true;
@@ -94,7 +92,13 @@ public class Ball : MonoBehaviour
             {
                 direction = Vector2.Reflect(direction, new Vector2(1, -1)).normalized;
             }
+        }
+        //Caso colida com as paredes
+        else if(collision.tag == "Wall")
+        {
+            hasLeafDiamond = true;
 
+            direction.y = -direction.y;
         }
     }
 }

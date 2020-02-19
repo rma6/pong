@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public Pad pad;
     public Ball ball;
-    public Diamond diamond;
 
     Pad padR;
     Pad padL;
@@ -21,8 +20,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        print(Screen.width);
-        print(Screen.height);
         //captura limites da cena
         bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
         topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
@@ -37,9 +34,6 @@ public class GameManager : MonoBehaviour
         padL = Instantiate(pad) as Pad;
         padL.Init(false);
 
-        //cria instancia de diamond
-        diamond = Instantiate(diamond) as Diamond;
-
         //animação
         ball.enabled = false;
         padL.enabled = false;
@@ -51,8 +45,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
         //animação
-        if(!start && !GameOver.gameover)
+        if (!start && !GameOver.gameover)
         {
             ball.transform.localScale += (ballScaleTarget - ball.transform.localScale) * 0.1f;
             padL.transform.localScale += (padScaleTarget - padL.transform.localScale) * 0.1f;

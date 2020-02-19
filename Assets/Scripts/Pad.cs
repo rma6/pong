@@ -12,6 +12,7 @@ public class Pad : MonoBehaviour
 
     //input: string com o nome do eixo para input
     string input;
+
     void Start()
     {
         //inicialização das variáveis independentes do lado do pad

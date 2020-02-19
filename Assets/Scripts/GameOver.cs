@@ -7,6 +7,8 @@ public class GameOver : MonoBehaviour
 {
     public static bool gameover = false;
     public static bool rigthWins = false;
+
+    bool sfxFlag = true;
     void Start()
     {
         
@@ -17,7 +19,13 @@ public class GameOver : MonoBehaviour
         //mostra texto quando um jogador perde
         if(gameover)
         {
-            if(rigthWins)
+            if(sfxFlag)
+            {
+                GetComponent<AudioSource>().Play();
+                sfxFlag = false;
+            }
+            
+            if (rigthWins)
             {
                 GetComponent<Text>().text = "Right Wins!";
             }
@@ -29,6 +37,7 @@ public class GameOver : MonoBehaviour
         else
         {
             GetComponent<Text>().text = "";
+            sfxFlag = true;
         }
     }
 }
