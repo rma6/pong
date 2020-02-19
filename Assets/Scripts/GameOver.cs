@@ -26,5 +26,9 @@ public class GameOver : MonoBehaviour
                 GetComponent<Text>().text = "Left Wins!";
             }
         }
+        else
+        {
+            GetComponent<Text>().text = "";
+        }
     }
 }

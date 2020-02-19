@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - Pad
+  - Diamond
   layers:
   - Default
   - TransparentFX

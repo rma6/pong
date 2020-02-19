@@ -11,6 +11,8 @@ public class Ball : MonoBehaviour
     //direction: vetor com direção da bola
     Vector2 direction;
 
+    public bool hasLeafDiamond = false;
+
     void Start()
     {
         //inicia variáveis
@@ -55,6 +57,9 @@ public class Ball : MonoBehaviour
         //caso colida com um pad inverte a direção do movimento
         if(collision.tag == "Pad")
         {
+            //para colidir com um pad a bola tem que ter saido do diamante
+            hasLeafDiamond = true;
+
             bool isRight = collision.GetComponent<Pad>().isRight;
 
             if((isRight && direction.x > 0) || ((!isRight && direction.x < 0)))
@@ -65,6 +70,31 @@ public class Ball : MonoBehaviour
                 direction.y = Math.Abs(transform.position.y - collision.GetComponent<Transform>().position.y);
                 direction = direction.normalized;
             }
+        }
+        //caso colida com o diamande reflete o movimento
+        else if(collision.tag == "Diamond" && hasLeafDiamond)
+        {
+            //primeiro quadrante
+            if(transform.position.x >= 0 && transform.position.y >= 0)
+            {
+                direction = Vector2.Reflect(direction, new Vector2(1,1)).normalized;
+            }
+            //segundo quadrante
+            else if (transform.position.x < 0 && transform.position.y >= 0)
+            {
+                direction = Vector2.Reflect(direction, new Vector2(-1, 1)).normalized;
+            }
+            //terceiro quadrante
+            else if (transform.position.x < 0 && transform.position.y < 0)
+            {
+                direction = Vector2.Reflect(direction, new Vector2(-1, -1)).normalized;
+            }
+            //quarto quadrante
+            else if (transform.position.x >= 0 && transform.position.y < 0)
+            {
+                direction = Vector2.Reflect(direction, new Vector2(1, -1)).normalized;
+            }
+
         }
     }
 }

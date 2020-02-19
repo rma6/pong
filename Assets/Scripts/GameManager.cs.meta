@@ -6,7 +6,7 @@ MonoImporter:
   defaultReferences:
   - pad: {fileID: 7942394077121930438, guid: e17d4f28f3ee0b44d88095ce552a2999, type: 3}
   - ball: {fileID: 8676461359814431574, guid: 7ac5227a6a3279f4387fd706ada974b7, type: 3}
-  - gameOverText: {fileID: 5702355667422045586, guid: d43ec9a5a5456d3489940304634066fa,
+  - diamond: {fileID: -8036887705899778870, guid: 3dadcac0491151e4caa5082a4b4c297c,
       type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
